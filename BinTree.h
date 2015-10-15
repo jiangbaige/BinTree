@@ -9,19 +9,25 @@
 #include "nodedata.h"
 
 class BinTree
-{				// you add class/method comments and assumptions
-
+{
+    friend std::ostream& operator<<(std::ostream &outStream, const BinTree &);
+//    friend std::istream& operator>>(std::istream &inStream, BinTree &);
+			// you add class/method comments and assumptions
 public:
     BinTree();								// constructor
     BinTree(const BinTree &);				// copy constructor
     ~BinTree();								// destructor, calls makeEmpty
+
     bool isEmpty() const;					// true if tree is empty, otherwise false
     void makeEmpty();						// make the tree empty so isEmpty returns true
+
     BinTree& operator=(const BinTree &);
+
     bool operator==(const BinTree &) const;
     bool operator!=(const BinTree &) const;
+
     bool insert(NodeData*);
-    bool retrieve() const;
+    bool retrieve(const NodeData &, NodeData* &) const;
     void displaySideways() const;			// provided below, displays the tree sideways
 
 private:
@@ -34,7 +40,7 @@ private:
     Node* root;								// root of the tree
 
     // utility functions
-    void inorderHelper( ) const;
+    void inorderHelper(Node*) const;
     void sideways(Node*, int) const;	// provided below, helper for displaySideways()
 };
 
