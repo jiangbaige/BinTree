@@ -42,12 +42,29 @@ bool BinTree::isEmpty() const
 
 void BinTree::makeEmpty()
 {
+        makeEmptyHelper(root);
+}
 
+void BinTree::makeEmptyHelper(Node* current)
+{
+    if (current != NULL)
+    {
+        makeEmptyHelper(current->left);
+        makeEmptyHelper(current->right);
+
+        delete current->data;
+        current->data = NULL;
+        delete current;
+        current = NULL;
+    }
 }
 
 BinTree &BinTree::operator=(const BinTree &tree)
 {
-    return <#initializer#>;
+    if (*this == tree)
+    {
+
+    }
 }
 
 bool BinTree::operator==(const BinTree &tree) const

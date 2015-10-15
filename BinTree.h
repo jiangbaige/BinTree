@@ -42,6 +42,7 @@ private:
     // utility functions
     void inorderHelper(Node*) const;
     void sideways(Node*, int) const;	// provided below, helper for displaySideways()
+    void makeEmptyHelper(Node* current)
 };
 
 
