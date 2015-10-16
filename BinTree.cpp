@@ -59,16 +59,26 @@ void BinTree::makeEmptyHelper(Node* current)
     }
 }
 
-BinTree &BinTree::operator=(const BinTree &tree)
+BinTree& BinTree::operator=(const BinTree &rTree)
 {
-    if (*this == tree)
+    if (*this == rTree)
     {
         return *this;
     }
 
     this->makeEmpty();
 
+    assignmentHelper(rTree.root);
+}
 
+void BinTree::assignmentHelper(Node* current)
+{
+    if (current != NULL)
+    {
+        insert(current->data);
+        assignmentHelper(current->left);
+        assignmentHelper(current->right);
+    }
 }
 
 bool BinTree::operator==(const BinTree &tree) const

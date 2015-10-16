@@ -27,7 +27,6 @@ public:
     bool operator!=(const BinTree &) const;
 
     bool insert(NodeData*);
-    bool insertHelper(Node*&, NodeData*)
 
     bool retrieve(const NodeData &, NodeData* &) const;
     void displaySideways() const;			// provided below, displays the tree sideways
@@ -44,7 +43,11 @@ private:
     // utility functions
     void inorderHelper(Node*) const;
     void sideways(Node*, int) const;	// provided below, helper for displaySideways()
-    void makeEmptyHelper(Node* current)
+    void makeEmptyHelper(Node* current);
+    bool insertHelper(Node*&, NodeData*);
+    void assignmentHelper(Node*);
+
+
 };
 
 
