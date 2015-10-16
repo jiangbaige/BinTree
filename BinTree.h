@@ -27,6 +27,8 @@ public:
     bool operator!=(const BinTree &) const;
 
     bool insert(NodeData*);
+    bool insertHelper(Node*&, NodeData*)
+
     bool retrieve(const NodeData &, NodeData* &) const;
     void displaySideways() const;			// provided below, displays the tree sideways
 

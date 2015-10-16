@@ -32,7 +32,7 @@ BinTree::BinTree(const BinTree &tree)
 
 BinTree::~BinTree()
 {
-
+    this->makeEmpty();
 }
 
 bool BinTree::isEmpty() const
@@ -63,8 +63,12 @@ BinTree &BinTree::operator=(const BinTree &tree)
 {
     if (*this == tree)
     {
-
+        return *this;
     }
+
+    this->makeEmpty();
+
+
 }
 
 bool BinTree::operator==(const BinTree &tree) const
@@ -77,9 +81,34 @@ bool BinTree::operator!=(const BinTree &tree) const
     return false;
 }
 
-bool BinTree::insert(NodeData *data)
+bool BinTree::insert(NodeData* toInsert)
 {
-    return false;
+    return insertHelper(this->root, toInsert);
+}
+
+bool BinTree::insertHelper(Node*& current, NodeData* toInsert)
+{
+    if (this->root == NULL)
+    {
+        root = new Node;
+        root->data = toInsert;
+        root->left = NULL;
+        root->right = NULL;
+    }
+    else if (*toInsert < *root->data)
+    {
+        insertHelper(root->left, toInsert);
+    }
+    else if (*toInsert > *root->data)
+    {
+        insertHelper(root->right, toInsert);
+    }
+    else
+    {
+        return false;
+    }
+
+    return true;
 }
 
 bool BinTree::retrieve(const NodeData &, NodeData* &) const
