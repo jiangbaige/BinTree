@@ -32,7 +32,7 @@ BinTree::BinTree()
     this->root->right = NULL;
 }
 
-// --------------------- Constructor -----------------------------------------
+// --------------------- Copy Constructor -----------------------------------------
 //
 // --------------------------------------------------------------
 BinTree::BinTree(const BinTree &sourceTree)
@@ -166,14 +166,36 @@ bool BinTree::insertHelper(Node*& current, NodeData* toInsert)
 // --------------------- retrieve -----------------------------------------
 //
 // --------------------------------------------------------------
-bool BinTree::retrieve(const NodeData &toRetrieve, NodeData* &retrieved) const
+bool BinTree::retrieve(const NodeData &toRetrieve, NodeData* &retrieved)
 {
-    return retrieveHelper(toRetrieve);
+    return retrieveHelper(this->root,toRetrieve, retrieved);
 }
 
-bool BinTree::retrieveHelper(const Node*) const
+bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeData* &retrieved) const
 {
+    if (current == NULL)
+    {
+        toRetrieve = NULL;
+        return false;
+    }
 
+    if (*current->data == toRetrieve)
+    {
+        retrieved = current->data;
+        return true;
+    }
+    else if (current->data < toRetrieve)
+    {
+        retrieveHelper(current->left, toRetrieve, retrieved);
+    }
+    else if (current->data > toRetrieve)
+    {
+        retrieveHelper(current->right, toRetrieve, retrieved);
+    }
+    else
+    {
+        return false;
+    }
 }
 
 // --------------------- displaySideways -----------------------------------------

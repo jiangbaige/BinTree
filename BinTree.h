@@ -28,7 +28,7 @@ public:
 
     bool insert(NodeData*);
 
-    bool retrieve(const NodeData &, NodeData* &) const;
+    bool retrieve(const NodeData &, NodeData* &);
     void displaySideways() const;			// provided below, displays the tree sideways
 
 private:
@@ -46,7 +46,7 @@ private:
     void makeEmptyHelper(Node* current);
     bool insertHelper(Node*&, NodeData*);
     void assignmentHelper(Node*);
-    bool retrieveHelper(const Node*) const;
+    bool retrieveHelper(Node* &, const NodeData &, NodeData* &) const;
 
 
 };
