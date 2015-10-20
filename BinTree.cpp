@@ -6,6 +6,10 @@
 
 using namespace std;
 
+
+// --------------------- Overloaded << -----------------------------------------
+//
+// --------------------------------------------------------------
 ostream &operator<<(ostream &outStream, const BinTree &tree)
 {
     tree.inorderHelper(tree.root);
@@ -18,6 +22,9 @@ ostream &operator<<(ostream &outStream, const BinTree &tree)
 //    return <#initializer#>;
 //}
 
+// --------------------- Default Constructor -----------------------------------------
+//
+// --------------------------------------------------------------
 BinTree::BinTree()
 {
     this->root = new Node();
@@ -25,26 +32,41 @@ BinTree::BinTree()
     this->root->right = NULL;
 }
 
-BinTree::BinTree(const BinTree &tree)
+// --------------------- Constructor -----------------------------------------
+//
+// --------------------------------------------------------------
+BinTree::BinTree(const BinTree &sourceTree)
 {
-
+    *this = sourceTree;
 }
 
+// --------------------- Destructor -----------------------------------------
+//
+// --------------------------------------------------------------
 BinTree::~BinTree()
 {
     this->makeEmpty();
 }
 
+// --------------------- isEmpty -----------------------------------------
+//
+// --------------------------------------------------------------
 bool BinTree::isEmpty() const
 {
     return false;
 }
 
+// --------------------- makeEmpty -----------------------------------------
+//
+// --------------------------------------------------------------
 void BinTree::makeEmpty()
 {
         makeEmptyHelper(root);
 }
 
+// --------------------- makeEmptyHelper -----------------------------------------
+//
+// --------------------------------------------------------------
 void BinTree::makeEmptyHelper(Node* current)
 {
     if (current != NULL)
@@ -59,6 +81,9 @@ void BinTree::makeEmptyHelper(Node* current)
     }
 }
 
+// --------------------- Overloaded = -----------------------------------------
+//
+// --------------------------------------------------------------
 BinTree& BinTree::operator=(const BinTree &rTree)
 {
     if (*this == rTree)
@@ -68,9 +93,14 @@ BinTree& BinTree::operator=(const BinTree &rTree)
 
     this->makeEmpty();
 
-    assignmentHelper(rTree.root);
+    this->assignmentHelper(rTree.root);
+
+    return *this;
 }
 
+// --------------------- assignmentHelper -----------------------------------------
+//
+// --------------------------------------------------------------
 void BinTree::assignmentHelper(Node* current)
 {
     if (current != NULL)
@@ -81,21 +111,33 @@ void BinTree::assignmentHelper(Node* current)
     }
 }
 
+// --------------------- Overloaded == -----------------------------------------
+//
+// --------------------------------------------------------------
 bool BinTree::operator==(const BinTree &tree) const
 {
     return false;
 }
 
+// --------------------- Overloaded != -----------------------------------------
+//
+// --------------------------------------------------------------
 bool BinTree::operator!=(const BinTree &tree) const
 {
     return false;
 }
 
+// --------------------- insert -----------------------------------------
+//
+// --------------------------------------------------------------
 bool BinTree::insert(NodeData* toInsert)
 {
     return insertHelper(this->root, toInsert);
 }
 
+// --------------------- insertHelper -----------------------------------------
+//
+// --------------------------------------------------------------
 bool BinTree::insertHelper(Node*& current, NodeData* toInsert)
 {
     if (this->root == NULL)
@@ -121,16 +163,30 @@ bool BinTree::insertHelper(Node*& current, NodeData* toInsert)
     return true;
 }
 
-bool BinTree::retrieve(const NodeData &, NodeData* &) const
+// --------------------- retrieve -----------------------------------------
+//
+// --------------------------------------------------------------
+bool BinTree::retrieve(const NodeData &toRetrieve, NodeData* &retrieved) const
 {
-    return false;
+    return retrieveHelper(toRetrieve);
 }
 
+bool BinTree::retrieveHelper(const Node*) const
+{
+
+}
+
+// --------------------- displaySideways -----------------------------------------
+//
+// --------------------------------------------------------------
 void BinTree::displaySideways() const
 {
-
+    sideways(root, 0);  // get her comments
 }
 
+// --------------------- inorderHelper -----------------------------------------
+//
+// --------------------------------------------------------------
 void BinTree::inorderHelper(Node* traversal) const
 {
     if (traversal != NULL)
@@ -141,6 +197,9 @@ void BinTree::inorderHelper(Node* traversal) const
     }
 }
 
+// --------------------- sideways -----------------------------------------
+//
+// --------------------------------------------------------------
 void BinTree::sideways(Node* current, int level) const
 {
     if (current != NULL) {

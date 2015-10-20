@@ -46,6 +46,7 @@ private:
     void makeEmptyHelper(Node* current);
     bool insertHelper(Node*&, NodeData*);
     void assignmentHelper(Node*);
+    bool retrieveHelper(const Node*) const;
 
 
 };
