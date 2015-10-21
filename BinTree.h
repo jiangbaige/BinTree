@@ -31,6 +31,8 @@ public:
     bool retrieve(const NodeData &, NodeData* &);
     void displaySideways() const;			// provided below, displays the tree sideways
 
+    int getHeight(const NodeData &) const;
+
 private:
     struct Node
     {
@@ -47,8 +49,9 @@ private:
     bool insertHelper(Node*&, NodeData*);
     void assignmentHelper(Node*);
     bool retrieveHelper(Node* &, const NodeData &, NodeData* &) const;
-
-
+    bool equalityComparisonHelper(Node*, Node*) const;
+    int getHeightHelper(const NodeData &, Node*, int, Node* &) const;
+    int findLeafHeightHelper(const Node*, int) const;
 };
 
 

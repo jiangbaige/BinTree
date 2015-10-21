@@ -114,17 +114,46 @@ void BinTree::assignmentHelper(Node* current)
 // --------------------- Overloaded == -----------------------------------------
 //
 // --------------------------------------------------------------
-bool BinTree::operator==(const BinTree &tree) const
+bool BinTree::operator==(const BinTree &rTree) const
 {
-    return false;
+    if (this->root == NULL && rTree.root == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return equalityComparisonHelper(this->root, rTree.root);
+    }
+}
+
+// --------------------- equalityComparisonHelper -----------------------------------------
+//
+// --------------------------------------------------------------
+bool BinTree::equalityComparisonHelper(Node* lNode, Node* rNode) const
+{
+    if (lNode == NULL && rNode == NULL)
+    {
+        return true;
+    }
+
+    if (lNode == NULL || rNode == NULL)
+    {
+        return false;
+    }
+
+    if (*lNode->data == *rNode->data && lNode->left == NULL && rNode->left == NULL)
+    {
+        equalityComparisonHelper(lNode->left, rNode->left) &&
+        equalityComparisonHelper(lNode->right, rNode->right);
+    }
 }
 
 // --------------------- Overloaded != -----------------------------------------
 //
 // --------------------------------------------------------------
-bool BinTree::operator!=(const BinTree &tree) const
+bool BinTree::operator!=(const BinTree &rTree) const
 {
-    return false;
+    return !(*this == rTree);
 }
 
 // --------------------- insert -----------------------------------------
@@ -235,5 +264,105 @@ void BinTree::sideways(Node* current, int level) const
 
         cout << *current->data << endl;        // display information of object
         sideways(current->left, level);
+    }
+}
+
+// --------------------- getHeight -----------------------------------------
+//
+// --------------------------------------------------------------
+int BinTree::getHeight(const NodeData &toFind) const
+{
+    if (this->root == NULL)
+    {
+        return 0;
+    }
+
+    Node* target = NULL;
+    int currentHeight = 0;
+    int foundHeight = getHeightHelper(toFind, this->root, currentHeight, target);
+
+    if (foundHeight == -1)
+    {
+        return 0;
+    }
+    else
+    {
+        int maxLeafHeight = foundHeight;
+
+        maxLeafHeight = findLeafHeightHelper(target, foundHeight);
+
+        return maxLeafHeight - foundHeight + 1;
+    }
+
+}
+
+// --------------------- getHeightHelper -----------------------------------------
+//
+// --------------------------------------------------------------
+int BinTree::getHeightHelper(const NodeData &toFind, Node* current, int currentHeight, Node* &target) const
+{
+    if (current == NULL)
+    {
+        target = NULL;
+        return -1;
+    }
+
+    if (*current->data == toFind)
+    {
+        target = current;
+        return currentHeight;
+    }
+    else
+    {
+        int leftHeight = getHeightHelper(toFind, current->left, currentHeight + 1, target);
+
+        if (leftHeight != 1)
+        {
+            return leftHeight;
+        }
+
+        int rightHeight = getHeightHelper(toFind, current->right, currentHeight + 1, target);
+
+        if (rightHeight != 1)
+        {
+            return rightHeight;
+        }
+
+        target = NULL;
+
+        return -1;
+    }
+}
+
+
+int BinTree::findLeafHeightHelper(const Node* current, int currentHeight) const
+{
+    int leftLeafHeight = 0;
+    int rightLeafHeight = 0;
+
+    if (current->left == NULL && current->right == NULL)
+    {
+        return currentHeight;
+    }
+    else
+    {
+        if (current->left != NULL)
+        {
+            leftLeafHeight = findLeafHeightHelper(current->left, currentHeight + 1);
+        }
+
+        if (current->right != NULL)
+        {
+            rightLeafHeight = findLeafHeightHelper(current->right, currentHeight + 1);
+        }
+
+        if (leftLeafHeight > rightLeafHeight)
+        {
+            return leftLeafHeight;
+        }
+        else
+        {
+            return rightLeafHeight;
+        }
     }
 }
