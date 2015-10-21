@@ -33,6 +33,8 @@ public:
 
     int getHeight(const NodeData &) const;
 
+    void bstreeToArray(NodeData* []);
+
 private:
     struct Node
     {
@@ -52,6 +54,7 @@ private:
     bool equalityComparisonHelper(Node*, Node*) const;
     int getHeightHelper(const NodeData &, Node*, int, Node* &) const;
     int findLeafHeightHelper(const Node*, int) const;
+    void bstreeToArrayHelper(Node*, NodeData* [], int &);
 };
 
 

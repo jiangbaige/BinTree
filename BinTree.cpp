@@ -366,3 +366,23 @@ int BinTree::findLeafHeightHelper(const Node* current, int currentHeight) const
         }
     }
 }
+
+void BinTree::bstreeToArray(NodeData* arrayToFill[])
+{
+    int index = 0;
+
+    bstreeToArrayHelper(this->root, arrayToFill, index);
+}
+
+void BinTree::bstreeToArrayHelper(Node* current, NodeData* arrayToFill[], int &index)
+{
+    if (current == NULL)
+    {
+        return;
+    }
+
+    bstreeToArrayHelper(current->left, arrayToFill, index);
+    arrayToFill[index] = current->data;
+    index++;
+    bstreeToArrayHelper(current->right, arrayToFill, index);
+}
