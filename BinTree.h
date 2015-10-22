@@ -34,6 +34,7 @@ public:
     int getHeight(const NodeData &) const;
 
     void bstreeToArray(NodeData* []);
+    void arrayToBSTree(NodeData* []);
 
 private:
     struct Node
@@ -55,6 +56,7 @@ private:
     int getHeightHelper(const NodeData &, Node*, int, Node* &) const;
     int findLeafHeightHelper(const Node*, int) const;
     void bstreeToArrayHelper(Node*, NodeData* [], int &);
+    void arrayToBSTreeHelper(Node*, NodeData* [], int, int);
 };
 
 

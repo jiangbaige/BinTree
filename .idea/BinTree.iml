@@ -61,6 +61,8 @@
           <root url="file:///System/Library/Frameworks/CloudKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Cocoa.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Collaboration.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/Contacts.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/ContactsUI.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreAudio.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreAudioKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreBluetooth.framework/Headers" />
@@ -80,7 +82,9 @@
           <root url="file:///System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/CoreServices.framework/Frameworks/SharedFileList.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreServices.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/CoreTelephony.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreText.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreVideo.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreWLAN.framework/Headers" />
@@ -103,6 +107,7 @@
           <root url="file:///System/Library/Frameworks/GSS.framework/Headers" />
           <root url="file:///System/Library/Frameworks/GameController.framework/Headers" />
           <root url="file:///System/Library/Frameworks/GameKit.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/GameplayKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Hypervisor.framework/Headers" />
           <root url="file:///System/Library/Frameworks/ICADevices.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IMServicePlugIn.framework/Headers" />
@@ -130,8 +135,12 @@
           <root url="file:///System/Library/Frameworks/MediaAccessibility.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MediaLibrary.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MediaToolbox.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/Metal.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/MetalKit.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/ModelIO.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MultipeerConnectivity.framework/Headers" />
           <root url="file:///System/Library/Frameworks/NetFS.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/NetworkExtension.framework/Headers" />
           <root url="file:///System/Library/Frameworks/NotificationCenter.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OSAKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OpenAL.framework/Headers" />
@@ -140,6 +149,8 @@
           <root url="file:///System/Library/Frameworks/OpenDirectory.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OpenGL.framework/Headers" />
           <root url="file:///System/Library/Frameworks/PCSC.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/Photos.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/PhotosUI.framework/Headers" />
           <root url="file:///System/Library/Frameworks/PreferencePanes.framework/Headers" />
           <root url="file:///System/Library/Frameworks/PubSub.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Python.framework/Headers" />
@@ -175,6 +186,7 @@
           <root url="file:///System/Library/Frameworks/VideoDecodeAcceleration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/VideoToolbox.framework/Headers" />
           <root url="file:///System/Library/Frameworks/WebKit.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/vecLib.framework/Headers" />
           <root url="file:///System/Library/Frameworks/vmnet.framework/Headers" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
@@ -227,6 +239,8 @@
           <root url="file:///System/Library/Frameworks/CloudKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Cocoa.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Collaboration.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/Contacts.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/ContactsUI.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreAudio.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreAudioKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreBluetooth.framework/Headers" />
@@ -246,7 +260,9 @@
           <root url="file:///System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/CoreServices.framework/Frameworks/SharedFileList.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreServices.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/CoreTelephony.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreText.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreVideo.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreWLAN.framework/Headers" />
@@ -269,6 +285,7 @@
           <root url="file:///System/Library/Frameworks/GSS.framework/Headers" />
           <root url="file:///System/Library/Frameworks/GameController.framework/Headers" />
           <root url="file:///System/Library/Frameworks/GameKit.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/GameplayKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Hypervisor.framework/Headers" />
           <root url="file:///System/Library/Frameworks/ICADevices.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IMServicePlugIn.framework/Headers" />
@@ -296,8 +313,12 @@
           <root url="file:///System/Library/Frameworks/MediaAccessibility.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MediaLibrary.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MediaToolbox.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/Metal.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/MetalKit.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/ModelIO.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MultipeerConnectivity.framework/Headers" />
           <root url="file:///System/Library/Frameworks/NetFS.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/NetworkExtension.framework/Headers" />
           <root url="file:///System/Library/Frameworks/NotificationCenter.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OSAKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OpenAL.framework/Headers" />
@@ -306,6 +327,8 @@
           <root url="file:///System/Library/Frameworks/OpenDirectory.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OpenGL.framework/Headers" />
           <root url="file:///System/Library/Frameworks/PCSC.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/Photos.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/PhotosUI.framework/Headers" />
           <root url="file:///System/Library/Frameworks/PreferencePanes.framework/Headers" />
           <root url="file:///System/Library/Frameworks/PubSub.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Python.framework/Headers" />
@@ -341,6 +364,7 @@
           <root url="file:///System/Library/Frameworks/VideoDecodeAcceleration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/VideoToolbox.framework/Headers" />
           <root url="file:///System/Library/Frameworks/WebKit.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/vecLib.framework/Headers" />
           <root url="file:///System/Library/Frameworks/vmnet.framework/Headers" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
