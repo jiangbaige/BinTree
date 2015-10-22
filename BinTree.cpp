@@ -27,9 +27,7 @@ ostream &operator<<(ostream &outStream, const BinTree &tree)
 // --------------------------------------------------------------
 BinTree::BinTree()
 {
-    this->root = new Node();
-    this->root->left = NULL;
-    this->root->right = NULL;
+    this->root = NULL;
 }
 
 // --------------------- Copy Constructor -----------------------------------------
@@ -146,11 +144,14 @@ bool BinTree::equalityComparisonHelper(Node* lNode, Node* rNode) const
         return false;
     }
 
-    if (*lNode->data == *rNode->data && lNode->left == NULL && rNode->left == NULL)
+    if ((*lNode->data == *rNode->data) && (lNode->left == NULL && rNode->left == NULL)
+        && lNode->right == NULL && rNode->right == NULL)
     {
-        equalityComparisonHelper(lNode->left, rNode->left) &&
-        equalityComparisonHelper(lNode->right, rNode->right);
+        return true;
     }
+
+    return ((*lNode->data == *rNode->data)) && equalityComparisonHelper(lNode->left, rNode->left)
+           && equalityComparisonHelper(lNode->right, rNode->right);
 }
 
 // --------------------- Overloaded != -----------------------------------------
@@ -209,7 +210,7 @@ bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeDat
 {
     if (current == NULL)
     {
-        toRetrieve = NULL;
+        retrieved = NULL;
         return false;
     }
 
@@ -218,11 +219,11 @@ bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeDat
         retrieved = current->data;
         return true;
     }
-    else if (current->data < toRetrieve)
+    else if (*current->data < toRetrieve)
     {
         retrieveHelper(current->left, toRetrieve, retrieved);
     }
-    else if (current->data > toRetrieve)
+    else if (*current->data > toRetrieve)
     {
         retrieveHelper(current->right, toRetrieve, retrieved);
     }
@@ -405,31 +406,37 @@ void BinTree::bstreeToArrayHelper(Node* current, NodeData* arrayToFill[], int &i
 // --------------------------------------------------------------
 void BinTree::arrayToBSTree(NodeData* sourceArray[])
 {
-    int end = 0;
+    this->makeEmpty();
 
-    for(int i = 0; i < 100; i++) //Count how many indexs of array are used
+    int high = 0;
+
+    for(int i = 0; i < 100; i++) //Count how many indexes of array are used
     {
         if (sourceArray[i] != NULL)
-            end++;
+            high++;
         else
             sourceArray[i] = NULL;
     }
 
     //Recursively call helper function to perform calculations
-    arrayToBSTreeHelper(root, sourceArray, 0, end-1);
+    arrayToBSTreeHelper(root, sourceArray, 0, high-1);
 }
 
 // --------------------- arrayToBSTreeHelper -----------------------------------------
 //
 // --------------------------------------------------------------
-void BinTree::arrayToBSTreeHelper(Node *current, NodeData* sourceArray[], int first, int end)
+void BinTree::arrayToBSTreeHelper(Node *current, NodeData* sourceArray[], int low, int high)
 {
-    if (sourceArray == NULL)
+    if (low > high)
     {
         return;
     }
     else
     {
-        for
+        int mid = (low + high) / 2;
+
+        insert(sourceArray[mid]);
+        arrayToBSTreeHelper(current->left, sourceArray, low, mid);
+        arrayToBSTreeHelper(current->right, sourceArray, mid + 1, high);
     }
 }
