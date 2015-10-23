@@ -14,7 +14,6 @@
     <list default="true" id="fb870da9-dc8d-4ceb-b2e4-2799c10e49cc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BinTree.cpp" afterPath="$PROJECT_DIR$/BinTree.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BinTree.h" afterPath="$PROJECT_DIR$/BinTree.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab2.cpp" afterPath="$PROJECT_DIR$/lab2.cpp" />
     </list>
     <ignored path="BinTree.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,14 +33,14 @@
     <favorites_list name="BinTree" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5755604">
+    <splitter split-orientation="horizontal" split-proportion="0.45149526">
       <split-first>
         <leaf>
           <file leaf-file-name="BinTree.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/BinTree.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.1174551">
-                  <caret line="53" column="63" selection-start-line="53" selection-start-column="63" selection-end-line="53" selection-end-column="63" />
+                <state vertical-scroll-proportion="0.81039757">
+                  <caret line="53" column="69" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
                   <folding />
                 </state>
               </provider>
@@ -66,13 +65,18 @@
           <file leaf-file-name="BinTree.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/BinTree.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.17292006">
-                  <caret line="205" column="30" selection-start-line="205" selection-start-column="30" selection-end-line="205" selection-end-column="30" />
+                <state vertical-scroll-proportion="0.26605505">
+                  <caret line="208" column="5" selection-start-line="208" selection-start-column="5" selection-end-line="208" selection-end-column="5" />
                   <folding>
                     <element signature="e#92#386#0" expanded="false" />
                     <element signature="e#483#684#0" expanded="false" />
                     <element signature="e#686#910#0" expanded="false" />
                     <element signature="e#1107#1364#0" expanded="false" />
+                    <element signature="e#3812#4048#0" expanded="false" />
+                    <element signature="e#4050#4284#0" expanded="false" />
+                    <element signature="e#4286#4927#0" expanded="false" />
+                    <element signature="e#5860#6097#0" expanded="false" />
+                    <element signature="e#6466#7023#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -138,8 +142,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1404" />
-    <option name="height" value="1050" />
+    <option name="x" value="545" />
+    <option name="y" value="23" />
+    <option name="width" value="1653" />
+    <option name="height" value="1413" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -152,7 +158,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -163,11 +169,24 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BinTree" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.BinTree">
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="BinTree" TARGET_NAME="BinTree" CONFIG_NAME="Debug">
@@ -219,18 +238,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1404" height="1050" extended-state="0" />
-    <editor active="true" />
+    <frame x="545" y="23" width="1653" height="1413" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33979592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33913702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959184" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959184" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3198052" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31947485" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43469387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31836733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2361847" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -294,6 +313,11 @@
             <element signature="e#483#684#0" expanded="false" />
             <element signature="e#686#910#0" expanded="false" />
             <element signature="e#1107#1364#0" expanded="false" />
+            <element signature="e#3812#4048#0" expanded="false" />
+            <element signature="e#4050#4284#0" expanded="false" />
+            <element signature="e#4286#4927#0" expanded="false" />
+            <element signature="e#5860#6097#0" expanded="false" />
+            <element signature="e#6466#7023#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -345,6 +369,11 @@
             <element signature="e#483#684#0" expanded="false" />
             <element signature="e#686#910#0" expanded="false" />
             <element signature="e#1107#1364#0" expanded="false" />
+            <element signature="e#3812#4048#0" expanded="false" />
+            <element signature="e#4050#4284#0" expanded="false" />
+            <element signature="e#4286#4927#0" expanded="false" />
+            <element signature="e#5860#6097#0" expanded="false" />
+            <element signature="e#6466#7023#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -396,6 +425,11 @@
             <element signature="e#483#684#0" expanded="false" />
             <element signature="e#686#910#0" expanded="false" />
             <element signature="e#1107#1364#0" expanded="false" />
+            <element signature="e#3812#4048#0" expanded="false" />
+            <element signature="e#4050#4284#0" expanded="false" />
+            <element signature="e#4286#4927#0" expanded="false" />
+            <element signature="e#5860#6097#0" expanded="false" />
+            <element signature="e#6466#7023#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -445,14 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BinTree.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1174551">
-          <caret line="53" column="63" selection-start-line="53" selection-start-column="63" selection-end-line="53" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab2.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -473,15 +499,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BinTree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81039757">
+          <caret line="53" column="69" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BinTree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17292006">
-          <caret line="205" column="30" selection-start-line="205" selection-start-column="30" selection-end-line="205" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.26605505">
+          <caret line="208" column="5" selection-start-line="208" selection-start-column="5" selection-end-line="208" selection-end-column="5" />
           <folding>
             <element signature="e#92#386#0" expanded="false" />
             <element signature="e#483#684#0" expanded="false" />
             <element signature="e#686#910#0" expanded="false" />
             <element signature="e#1107#1364#0" expanded="false" />
+            <element signature="e#3812#4048#0" expanded="false" />
+            <element signature="e#4050#4284#0" expanded="false" />
+            <element signature="e#4286#4927#0" expanded="false" />
+            <element signature="e#5860#6097#0" expanded="false" />
+            <element signature="e#6466#7023#0" expanded="false" />
           </folding>
         </state>
       </provider>

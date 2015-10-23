@@ -203,16 +203,17 @@ bool BinTree::insertHelper(Node*& current, NodeData* toInsert)
 // --------------------------------------------------------------
 bool BinTree::retrieve(const NodeData &toRetrieve, NodeData* &retrieved)
 {
-    if (this->root == NULL) //
+    retrieveHelper(this->root,toRetrieve, retrieved);
+
+    if (retrieved != NULL)
     {
-        retrieved == NULL;
-        return false;
+        return true;
     }
 
-    return retrieveHelper(this->root,toRetrieve, retrieved);
+    return false;
 }
 
-bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeData* &retrieved)
+bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeData* &retrieved) const
 {
     if (current == NULL)
     {

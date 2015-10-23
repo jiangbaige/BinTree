@@ -51,7 +51,7 @@ private:
     void makeEmptyHelper(Node*& current);
     bool insertHelper(Node*&, NodeData*);
     void assignmentHelper(Node*);
-    bool retrieveHelper(Node* &, const NodeData &, NodeData* &);
+    bool retrieveHelper(Node* &, const NodeData &, NodeData* &) const;
     bool equalityComparisonHelper(Node*, Node*) const;
     int getHeightHelper(const NodeData &, Node*, int, Node* &) const;
     int findLeafHeightHelper(const Node*, int) const;
