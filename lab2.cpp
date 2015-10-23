@@ -24,9 +24,10 @@ void buildTree(BinTree&, ifstream&);      //
 void initArray(NodeData*[]);             // initialize array to NULL
 
 int main() {
+
     // create file object infile and open it
     // for testing, call your data file something appropriate, e.g., data2.txt
-    ifstream infile("data2.txt");
+    ifstream infile("/Users/shyawnkarim/Documents/css343/Assignment2/supportingFiles/data2.txt");
     if (!infile) {
         cout << "File could not be opened." << endl;
         return 1;
@@ -49,6 +50,7 @@ int main() {
     cout << "Initial data:" << endl << "  ";
     buildTree(T, infile);              // builds and displays initial data
     cout << endl;
+    T.displaySideways();
     BinTree first(T);                  // test copy constructor
     dup = dup = T;                     // test operator=, self-assignment
     while (!infile.eof()) {

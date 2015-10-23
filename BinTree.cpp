@@ -70,7 +70,7 @@ void BinTree::makeEmpty()
 // --------------------- makeEmptyHelper -----------------------------------------
 //
 // --------------------------------------------------------------
-void BinTree::makeEmptyHelper(Node* current)
+void BinTree::makeEmptyHelper(Node*& current)
 {
     if (current != NULL)
     {
@@ -175,20 +175,20 @@ bool BinTree::insert(NodeData* toInsert)
 // --------------------------------------------------------------
 bool BinTree::insertHelper(Node*& current, NodeData* toInsert)
 {
-    if (this->root == NULL)
+    if (current == NULL)
     {
-        root = new Node;
-        root->data = toInsert;
-        root->left = NULL;
-        root->right = NULL;
+        current = new Node();
+        current ->data = toInsert;
+        current ->left = NULL;
+        current->right = NULL;
     }
-    else if (*toInsert < *root->data)
+    else if (*toInsert < *current->data)
     {
-        insertHelper(root->left, toInsert);
+        insertHelper(current->left, toInsert);
     }
-    else if (*toInsert > *root->data)
+    else if (*toInsert > *current->data)
     {
-        insertHelper(root->right, toInsert);
+        insertHelper(current->right, toInsert);
     }
     else
     {
@@ -203,10 +203,16 @@ bool BinTree::insertHelper(Node*& current, NodeData* toInsert)
 // --------------------------------------------------------------
 bool BinTree::retrieve(const NodeData &toRetrieve, NodeData* &retrieved)
 {
+    if (this->root == NULL) //
+    {
+        retrieved == NULL;
+        return false;
+    }
+
     return retrieveHelper(this->root,toRetrieve, retrieved);
 }
 
-bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeData* &retrieved) const
+bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeData* &retrieved)
 {
     if (current == NULL)
     {
@@ -221,11 +227,11 @@ bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeDat
     }
     else if (*current->data < toRetrieve)
     {
-        retrieveHelper(current->left, toRetrieve, retrieved);
+        retrieveHelper(current->right, toRetrieve, retrieved);
     }
     else if (*current->data > toRetrieve)
     {
-        retrieveHelper(current->right, toRetrieve, retrieved);
+        retrieveHelper(current->left, toRetrieve, retrieved);
     }
     else
     {
@@ -383,6 +389,8 @@ void BinTree::bstreeToArray(NodeData* arrayToFill[])
     int index = 0;
 
     bstreeToArrayHelper(this->root, arrayToFill, index);
+
+    this->makeEmpty();
 }
 
 // --------------------- getHeightHelper -----------------------------------------

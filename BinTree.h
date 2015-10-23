@@ -48,10 +48,10 @@ private:
     // utility functions
     void inorderHelper(Node*) const;
     void sideways(Node*, int) const;	// provided below, helper for displaySideways()
-    void makeEmptyHelper(Node* current);
+    void makeEmptyHelper(Node*& current);
     bool insertHelper(Node*&, NodeData*);
     void assignmentHelper(Node*);
-    bool retrieveHelper(Node* &, const NodeData &, NodeData* &) const;
+    bool retrieveHelper(Node* &, const NodeData &, NodeData* &);
     bool equalityComparisonHelper(Node*, Node*) const;
     int getHeightHelper(const NodeData &, Node*, int, Node* &) const;
     int findLeafHeightHelper(const Node*, int) const;
