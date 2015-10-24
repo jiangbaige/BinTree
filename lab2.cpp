@@ -50,7 +50,6 @@ int main() {
     cout << "Initial data:" << endl << "  ";
     buildTree(T, infile);              // builds and displays initial data
     cout << endl;
-    T.displaySideways();
     BinTree first(T);                  // test copy constructor
     dup = dup = T;                     // test operator=, self-assignment
     while (!infile.eof()) {
