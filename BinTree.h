@@ -95,7 +95,7 @@ private:
     int findLeafHeightHelper(const Node*, int) const;
 
     // helper for bstreeToArray
-    void bstreeToArrayHelper(Node*, NodeData* [], int &);
+    int bstreeToArrayHelper(Node*, NodeData* []);
 
     // helper for arrayToBSTree
     void arrayToBSTreeHelper(Node*, NodeData* [], int, int);
