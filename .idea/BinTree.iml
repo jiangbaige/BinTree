@@ -2,8 +2,8 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/BinTree.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BinTree.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bintree.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bintree.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lab2.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/nodedata.cpp" isTestSource="false" />

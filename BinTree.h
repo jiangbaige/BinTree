@@ -4,16 +4,12 @@
 // Created:         October 13, 2015
 // Last Modified:   October 24, 2015
 // --------------------------------------------------------------
-// Purpose: This class implements a representation of polynomials
-// that do not have negative exponents.  Each polynomial is
-// stored completely in one array. The index of the array
-// represents the power and is where the corresponding coefficient
-// is stored. Polynomials will be able to be changed any time and
-// can be added, subtracted, or multiplied by each other.
+// Purpose: Creates a binary search tree class called BinTree
+// along with functions that allow for tree building, tree modifing,
+// and tree destroying.
 // --------------------------------------------------------------
-// Assumptions: All data will be assumed to be correct and there
-// is no error handling of any kind.  Negative exponents will be
-// ignored.
+// Assumptions: All data is assumed to be correct and all of the
+// BSTs are assumed to be 100 nodes or less.
 // --------------------------------------------------------------
 
 #ifndef BINTREE_BINTREE_H
@@ -77,7 +73,7 @@ private:
     void makeEmptyHelper(Node*& current);
 
     // helper for overloaded =
-    void assignmentHelper(Node*);
+    void assignmentHelper(Node*, Node* &);
 
     // helper for overloaded ==
     bool equalityComparisonHelper(Node*, Node*) const;
@@ -89,10 +85,10 @@ private:
     bool retrieveHelper(Node* &, const NodeData &, NodeData* &) const;
 
     // helper for getHeight
-    int getHeightHelper(const NodeData &, Node*, int, Node* &) const;
+    int getHeightHelper(const NodeData&, Node*) const;
 
     // helper for the getHeighthelper
-    int findLeafHeightHelper(const Node*, int) const;
+    int recursiveGetHeightHelper(Node*) const;
 
     // helper for bstreeToArray
     int bstreeToArrayHelper(Node*, NodeData* []);

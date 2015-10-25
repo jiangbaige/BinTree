@@ -4,19 +4,15 @@
 // Created:         October 13, 2015
 // Last Modified:   October 24, 2015
 // --------------------------------------------------------------
-// Purpose: This class implements a representation of polynomials
-// that do not have negative exponents.  Each polynomial is
-// stored completely in one array. The index of the array
-// represents the power and is where the corresponding coefficient
-// is stored. Polynomials will be able to be changed any time and
-// can be added, subtracted, or multiplied by each other.
+// Purpose: Creates a binary search tree class called BinTree
+// along with functions that allow for tree building, tree modifing,
+// and tree destroying.
 // --------------------------------------------------------------
-// Assumptions: All data will be assumed to be correct and there
-// is no error handling of any kind.  Negative exponents will be
-// ignored.
+// Assumptions: All data is assumed to be correct and all of the
+// BSTs are assumed to be 100 nodes or less.
 // --------------------------------------------------------------
 
-#include "BinTree.h"
+#include "bintree.h"
 
 using namespace std;
 
@@ -35,13 +31,13 @@ ostream &operator<<(ostream &outStream, const BinTree &tree)
 // --------------------- inorderHelper -----------------------------------------
 // Helper function for overloaded operator <<
 // --------------------------------------------------------------
-void BinTree::inorderHelper(Node* traversal) const
+void BinTree::inorderHelper(Node* current) const
 {
-    if (traversal != NULL)  // traverse and print data
+    if (current != NULL)  // traverse and print data
     {
-        inorderHelper(traversal->left);
-        cout << *traversal->data << " ";
-        inorderHelper(traversal->right);
+        inorderHelper(current->left);
+        cout << *current->data << " ";
+        inorderHelper(current->right);
     }
 }
 
@@ -58,7 +54,7 @@ BinTree::BinTree()
 // --------------------------------------------------------------
 BinTree::BinTree(const BinTree &sourceTree)
 {
-    this->root = NULL; // maybe not needed
+    this->root = NULL;
     *this = sourceTree;
 }
 
@@ -99,14 +95,17 @@ void BinTree::makeEmptyHelper(Node*& current)
 {
     if (current != NULL)    // post order traversal
     {
-        makeEmptyHelper(current->left);
-        makeEmptyHelper(current->right);
+        makeEmptyHelper(current->left); // left
+        makeEmptyHelper(current->right);    // right
 
-        current->data = NULL;
-        delete current->data;   // delete NodeData
+        if (current->data != NULL)
+        {
+            delete current->data;   // deletes the data
+            current->data = NULL;
+        }
+
+        delete current; // sets pointer to NULL
         current = NULL;
-        delete current; // delete node
-
     }
 }
 
@@ -116,28 +115,36 @@ void BinTree::makeEmptyHelper(Node*& current)
 // --------------------------------------------------------------
 BinTree& BinTree::operator=(const BinTree &rTree)
 {
-    if (*this == rTree)
+    if (*this == rTree) // check if both trees are the same
     {
         return *this;
     }
 
     this->makeEmpty();  // deletes the left tree
 
-    this->assignmentHelper(rTree.root);
+    assignmentHelper(rTree.root, this->root);
 
-    return *this;
+    return *this;   // returns lTree when its the same as rTree
 }
 
 // --------------------- assignmentHelper -----------------------------------------
 // Helper function to overloaded assignment operator
 // --------------------------------------------------------------
-void BinTree::assignmentHelper(Node* current)
+void BinTree::assignmentHelper(Node* rTree, Node* &lTree)
 {
-    if (current != NULL)    // preorder traverse right tree
+    if (rTree != NULL) // preorder traverse right tree
     {
-        insert(current->data);  // insert node in left tree
-        assignmentHelper(current->left);
-        assignmentHelper(current->right);
+
+        lTree = new Node;   // new node for left tree
+        NodeData *temp = new NodeData(*rTree->data);    //copies rTree NodeData to temp
+        lTree->data = temp; // set left tree data to temp
+
+        assignmentHelper(rTree->left, lTree->left); // left
+        assignmentHelper(rTree->right, lTree->right);   //right
+    }
+    else
+    {
+        lTree = NULL;  // copy empty tree
     }
 }
 
@@ -211,7 +218,7 @@ bool BinTree::insertHelper(Node*& current, NodeData* toInsert)
 {
     if (current == NULL)    // insert new node here
     {
-        current = new Node();   // new node created
+        current = new Node;   // new node created
         current->data = toInsert;   // NodeData set to node
         current->left = NULL;   // left child set to NULL
         current->right = NULL;  // right child set to NULL
@@ -280,155 +287,106 @@ bool BinTree::retrieveHelper(Node* &current, const NodeData &toRetrieve, NodeDat
 }
 
 // --------------------- getHeight -----------------------------------------
-//
+// Returns the height of a given node in a binary standard tree
+// If the node given is a leaf than the height is 1
+// Uses helper function getHeightHelper
 // --------------------------------------------------------------
 int BinTree::getHeight(const NodeData &toFind) const
 {
-    if (this->root == NULL)
-    {
-        return 0;
-    }
-
-    Node* target = NULL;
-    int currentHeight = 0;
-    int foundHeight = getHeightHelper(toFind, this->root, currentHeight, target);
-
-    if (foundHeight == -1)
-    {
-        return 0;
-    }
-    else
-    {
-        int maxLeafHeight = foundHeight;
-
-        maxLeafHeight = findLeafHeightHelper(target, foundHeight);
-
-        return maxLeafHeight - foundHeight + 1;
-    }
+    return getHeightHelper(toFind, this->root);
 }
 
 // --------------------- getHeightHelper -----------------------------------------
-//
+// Helper function to getHeight
+// Finds the specific node in the tree, if it exists
+// Uses helper function recursiveGetHeightHelper
 // --------------------------------------------------------------
-int BinTree::getHeightHelper(const NodeData &toFind, Node* current, int currentHeight, Node* &target) const
+int BinTree::getHeightHelper(const NodeData &toFind, Node* current) const
 {
     if (current == NULL)
     {
-        target = NULL;
-        return -1;
+        return 0;   // node is not in tree, return height = 0
     }
-
-    if (*current->data == toFind)
+    else if (*current->data == toFind)
     {
-        target = current;
-        return currentHeight;
+        return recursiveGetHeightHelper(current);   // node found
     }
     else
     {
-        int leftHeight = getHeightHelper(toFind, current->left, currentHeight + 1, target);
+        int left = getHeightHelper(toFind, current->left);  // search left
+        int right = getHeightHelper(toFind, current->right);    // search right
 
-        if (leftHeight != 1)
-        {
-            return leftHeight;
-        }
-
-        int rightHeight = getHeightHelper(toFind, current->right, currentHeight + 1, target);
-
-        if (rightHeight != 1)
-        {
-            return rightHeight;
-        }
-
-        target = NULL;
-
-        return -1;
+        return max(left, right);
     }
 }
 
-// --------------------- findLeafHeightHelper -----------------------------------------
-//
+// --------------------- secondGetHeightHelper -----------------------------------------
+// Helper function to getHeightHelper
+// Determines the height of the root node
 // --------------------------------------------------------------
-int BinTree::findLeafHeightHelper(const Node* current, int currentHeight) const
+int BinTree::recursiveGetHeightHelper(Node* current) const
 {
-    int leftLeafHeight = 0;
-    int rightLeafHeight = 0;
-
-    if (current->left == NULL && current->right == NULL)
+    if (current == NULL)
     {
-        return currentHeight;
+        return 0;   // have reached a leaf node
     }
     else
     {
-        if (current->left != NULL)
-        {
-            leftLeafHeight = findLeafHeightHelper(current->left, currentHeight + 1);
-        }
-
-        if (current->right != NULL)
-        {
-            rightLeafHeight = findLeafHeightHelper(current->right, currentHeight + 1);
-        }
-
-        if (leftLeafHeight > rightLeafHeight)
-        {
-            return leftLeafHeight;
-        }
-        else
-        {
-            return rightLeafHeight;
-        }
+        // counts the amount of levels in the tree from root node
+        return 1 + max(recursiveGetHeightHelper(current->left), recursiveGetHeightHelper(current->right));
     }
 }
 
 // --------------------- bstreeToArrayHelper -----------------------------------------
-//
+// Transfers all of the nodes from a BST into an array and then deletes the BST
+// Uses helper function bstreeToArrayHelper
 // --------------------------------------------------------------
 void BinTree::bstreeToArray(NodeData* arrayToFill[])
 {
-    // int index = 0;
-
     bstreeToArrayHelper(this->root, arrayToFill);
 
-    this->makeEmpty();
+    this->makeEmpty();  // delete the BST
 }
 
 // --------------------- bstreeToArrayHelper -----------------------------------------
-//
+// Helper function to bstreeToArrayHelper
 // --------------------------------------------------------------
 int BinTree::bstreeToArrayHelper(Node* current, NodeData* arrayToFill[])
 {
     if (current == NULL)
     {
-        return 0;
+        return 0;   // end of BST
     }
 
     int left = bstreeToArrayHelper(current->left, arrayToFill);
 
     NodeData *temp;
-    temp = current->data; // save the pointer to NodeData object to temp
-    current->data = NULL; // disconnect NodeData from Node
+    temp = current->data; // saves NodeData to temp
+    current->data = NULL; // current no longer points to node
     *(arrayToFill + left) = temp; //arrayToFill points to temp
-    temp = NULL; // disconnect
+    temp = NULL;
 
     int right = bstreeToArrayHelper(current->right, arrayToFill + left + 1);
 
-    return left + right + 1; //Return position
+    return left + right + 1; // return position
 }
 
 // --------------------- arrayToBSTree -----------------------------------------
-//
+// Builds a balanced BST from a sorted array of NodeData
+// Array is filled with NULLs at the end
+// Uses helper function arrayToBSTreeHelper
 // --------------------------------------------------------------
 void BinTree::arrayToBSTree(NodeData* sourceArray[])
 {
-    this->makeEmpty();
+    this->makeEmpty();  // delets current BST
 
     int high = 0;
 
-    for(int i = 0; i < 100; i++) //Count how many indexes of array are used
+    for(int i = 0; i < 100; i++)    // assumed to be no more than 100 elements
     {
         if (sourceArray[i] != NULL)
         {
-            high++;
+            high++; // find how many elements points to NodeData
         }
         else
         {
@@ -436,30 +394,30 @@ void BinTree::arrayToBSTree(NodeData* sourceArray[])
         }
     }
 
-    //Recursively call helper function to perform calculations
     arrayToBSTreeHelper(root, sourceArray, 0, high-1);
 }
 
 // --------------------- arrayToBSTreeHelper -----------------------------------------
-//
+// Helper function to arrayToBSTree
+// Builds BST and sets array to NULL
 // --------------------------------------------------------------
 void BinTree::arrayToBSTreeHelper(Node *current, NodeData* sourceArray[], int low, int high)
 {
     if (low > high)
     {
-        current = NULL;
+        current = NULL; // end of array NodeData
     }
     else
     {
-        int mid = (low + high) / 2;
+        int mid = (low + high) / 2; // picks NodeData from array to build balanced tree
 
-        NodeData* temp;
-        temp = sourceArray[mid];
-        sourceArray[mid] = NULL;
+        NodeData* temp; // temp NodeData pointer
+        temp = sourceArray[mid];    // assigns mid element from array section to temp
+        sourceArray[mid] = NULL;    // sets that array element to NULL
 
-        insert(temp);
-        arrayToBSTreeHelper(current, sourceArray, low, mid - 1);    // left
-        arrayToBSTreeHelper(current, sourceArray, mid + 1, high);   // right
+        insert(temp);   // inserts NodeData int BST
+        arrayToBSTreeHelper(current, sourceArray, low, mid - 1);    // fill left
+        arrayToBSTreeHelper(current, sourceArray, mid + 1, high);   // fill right
     }
 }
 
